@@ -34,32 +34,32 @@ download.onclick = function(){
 }
 
 black.onclick = function(){
-    context.fillStyle = 'black'
-    context.strokeStyle = 'black'
+    context.fillStyle = '#000'
+    context.strokeStyle = '#000'
     black.classList.add('active')
     red.classList.remove('active')
     green.classList.remove('active')
     blue.classList.remove('active')
 }
 red.onclick = function(){
-    context.fillStyle = 'red'
-    context.strokeStyle = 'red'
+    context.fillStyle = '#F00'
+    context.strokeStyle = '#F00'
     black.classList.remove('active')
     red.classList.add('active')
     green.classList.remove('active')
     blue.classList.remove('active')
 }
 green.onclick = function(){
-    context.fillStyle = 'green'
-    context.strokeStyle = 'green'
+    context.fillStyle = '#0F0'
+    context.strokeStyle = '#0F0'
     black.classList.remove('active')
     red.classList.remove('active')
     green.classList.add('active')
     blue.classList.remove('active')
 }
 blue.onclick = function(){
-    context.fillStyle = 'blue'
-    context.strokeStyle = 'blue'
+    context.fillStyle = '#00F'
+    context.strokeStyle = '#00F'
     black.classList.remove('active')
     red.classList.remove('active')
     green.classList.remove('active')

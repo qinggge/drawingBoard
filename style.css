@@ -48,16 +48,16 @@ ul,ol{
     transition: all 0.3s;
 }
 .colors li.black{
-    background: black;
+    background: #000;
 }
 .colors li.red{
-    background: red;
+    background: #F00;
 }
 .colors li.green{
-    background: green;
+    background: #0F0;
 }
 .colors li.blue{
-    background: blue;
+    background: #00F;
 }
 .colors li.active{
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.95);
@@ -72,6 +72,7 @@ ul,ol{
     margin: 20px 0;
     height: 0;
     width: 45px;
+    transition: all 0.3s;
 }
 .sizes > .thin{
     border-top: 3px solid black;
@@ -84,4 +85,5 @@ ul,ol{
 }
 .sizes > li.active{
     box-shadow: 0 0 1px 2px #808080;
+    transform: scale(1.2);
 }
