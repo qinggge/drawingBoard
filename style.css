@@ -80,5 +80,5 @@ body{
 .sizes > .thick{
     height: 0;
     width: 20px;
-    border-top: 10px solid black;
+    border-top: 6px solid black;
 }

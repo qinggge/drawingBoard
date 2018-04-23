@@ -18,6 +18,18 @@ eraser.onclick = function(){
     eraser.classList.add('active')
     pen.classList.remove('active')
 }
+clear.onclick = function(){
+    context.clearRect(0, 0, yyy.width, yyy.height)
+}
+download.onclick = function(){
+    var url = yyy.toDataURL('image/png')
+    var a = document.createElement('a')
+    document.body.appendChild(a)
+    a.href = url
+    a.download = 'myPic'
+    a.target = '_blank'
+    a.click()
+}
 
 black.onclick = function(){
     context.fillStyle = 'red'
