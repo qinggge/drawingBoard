@@ -63,7 +63,37 @@ function listenToUser(canvas) {
 
     if (document.body.ontouchstart !== undefined) {
         canvas.ontouchstart = function(aaa) {
-            console.log(aaa)
+            var x = aaa.touches[0].clientX
+            var y = aaa.touches[0].clientY
+            using = true
+            if (eraserEnabled) {
+                context.clearRect(x - 5, y - 5, 10, 10)
+            } else {
+                lastPoint = {
+                    "x": x,
+                    "y": y
+                }
+            }
+        }
+        canvas.onmousemove = function(aaa) {
+            var x = aaa.touches[0].clientX
+            var y = aaa.touches[0].clientY
+      
+            if (!using) {return}
+      
+            if (eraserEnabled) {
+                context.clearRect(x - 5, y - 5, 10, 10)
+            } else {
+                var newPoint = {
+                    "x": x,
+                    "y": y
+                }
+                drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
+                lastPoint = newPoint
+            }
+        }
+        canvas.onmouseup = function() {
+            using = false
         }
     }else{
         canvas.onmousedown = function(aaa) {
