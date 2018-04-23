@@ -94,10 +94,10 @@ function autoSetCanvasSize(canvas) {
     }
 }
 
-function drawCircle(x, y, radius) {
+function drawCircle(x, y, lineWidth) {
     context.beginPath()
     context.fillStyle = 'black'
-    context.arc(x, y, radius, 0, Math.PI * 2);
+    context.arc(x, y, lineWidth, 0, Math.PI * 2);
     context.fill()
 }
 
@@ -145,7 +145,7 @@ function listenToUser(canvas) {
                     "x": x,
                     "y": y
                 }
-                drawCircle(x,y,radius)
+                drawCircle(x,y,lineWidth)
                 drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
                 lastPoint = newPoint
             }
@@ -181,7 +181,7 @@ function listenToUser(canvas) {
                     "x": x,
                     "y": y
                 }
-                drawCircle(x,y,radius)
+                drawCircle(x,y,lineWidth)
                 drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
                 lastPoint = newPoint
             }
