@@ -134,7 +134,7 @@ function listenToUser(canvas) {
             var y = aaa.touches[0].clientY
             using = true
             if (eraserEnabled) {
-                context.clearRect(x - 5, y - 5, 10, 10)
+                context.clearRect(x - 5, y - 5, lineWidth, lineWidth)
             } else {
                 lastPoint = {
                     "x": x,
@@ -149,7 +149,7 @@ function listenToUser(canvas) {
             if (!using) {return}
 
             if (eraserEnabled) {
-                context.clearRect(x - 5, y - 5, 10, 10)
+                context.clearRect(x - 5, y - 5, lineWidth, lineWidth)
             } else {
                 var newPoint = {
                     "x": x,
@@ -170,7 +170,7 @@ function listenToUser(canvas) {
             var y = aaa.clientY
             using = true
             if (eraserEnabled) {
-                context.clearRect(x - 5, y - 5, 10, 10)
+                context.clearRect(x - 5, y - 5, lineWidth, lineWidth)
             } else {
                 lastPoint = {
                     "x": x,
@@ -185,7 +185,7 @@ function listenToUser(canvas) {
             if (!using) {return}
       
             if (eraserEnabled) {
-                context.clearRect(x - 5, y - 5, 10, 10)
+                context.clearRect(x - 5, y - 5, lineWidth, lineWidth)
             } else {
                 var newPoint = {
                     "x": x,
