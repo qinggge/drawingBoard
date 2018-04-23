@@ -70,22 +70,18 @@ ul,ol{
 }
 .sizes > li{
     margin: 20px 0;
+    height: 0;
+    width: 45px;
 }
 .sizes > .thin{
-    height: 0;
-    width: 20px;
     border-top: 3px solid black;
 }
 .sizes > .thick{
-    height: 0;
-    width: 20px;
     border-top: 6px solid black;
 }
 .sizes > .thicker{
-    height: 0;
-    width: 20px;
     border-top: 9px solid black;
 }
-.sizes > li>.active{
+.sizes > li.active{
     box-shadow: 0 0 1px 2px #808080;
 }
