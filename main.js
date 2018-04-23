@@ -186,6 +186,7 @@ function listenToUser(canvas) {
       
             if (eraserEnabled) {
                 context.clearRect(x - 5, y - 5, lineWidth, lineWidth)
+
             } else {
                 var newPoint = {
                     "x": x,
