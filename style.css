@@ -1,25 +1,23 @@
 #xxx{
-	background: pink;
 	display: block;
   }
-  
-  body{
-	margin: 0px;
-  }
-  
-  .actions{
-	position: fixed;
-	top: 0;
-	left: 0;
-  }
-  .actions > #brush{
-	display: none;
-  }
-  
-  .actions.x > #brush{
-	display: inline-block;
-  }
-  .actions.x > #eraser{
-	display: none
-  }
-  
+ 
+body{
+    margin: 0px;
+}
+
+.actions{
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.actions svg{
+    width: 1.5em;
+    height: 1.5em;
+}
+.icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}

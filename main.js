@@ -1,4 +1,3 @@
-
 var yyy = document.getElementById('xxx');
 var context = yyy.getContext('2d');
 
@@ -8,16 +7,12 @@ listenToUser(yyy)
 
 
 var eraserEnabled = false
-eraser.onclick = function() {
-  eraserEnabled =true
-  actions.className = 'actions x'
-  
+pen.onclick = function(){
+    eraserEnabled = false
 }
-brush.onclick = function(){
-  eraserEnabled = false
-  actions.className = 'actions'
+eraser.onclick = function(){
+    eraserEnabled = true
 }
-
 
 /******/
 
