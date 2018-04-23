@@ -2,6 +2,7 @@
 var yyy = document.getElementById('xxx');
 var context = yyy.getContext('2d');
 var lineWidth = 3
+var fillStyle = black
 
 autoSetCanvasSize(yyy)
 
@@ -33,8 +34,8 @@ download.onclick = function(){
 }
 
 black.onclick = function(){
-    context.fillStyle = 'red'
-    context.strokeStyle = 'red'
+    context.fillStyle = 'black'
+    context.strokeStyle = 'black'
     black.classList.add('active')
     red.classList.remove('active')
     green.classList.remove('active')
@@ -105,7 +106,7 @@ function autoSetCanvasSize(canvas) {
 
 function drawCircle(x, y, lineWidth) {
     context.beginPath()
-    context.fillStyle = 'black'
+    context.fillStyle = fillStyle
     context.arc(x, y, lineWidth * 0.5, 0, Math.PI * 2);
     context.fill()
 }
