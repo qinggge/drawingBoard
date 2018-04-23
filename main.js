@@ -75,7 +75,7 @@ function listenToUser(canvas) {
                 }
             }
         }
-        canvas.onmousemove = function(aaa) {
+        canvas.ontouchmove = function(aaa) {
             var x = aaa.touches[0].clientX
             var y = aaa.touches[0].clientY
       
@@ -92,7 +92,7 @@ function listenToUser(canvas) {
                 lastPoint = newPoint
             }
         }
-        canvas.onmouseup = function() {
+        canvas.ontouchend = function() {
             using = false
         }
     }else{
