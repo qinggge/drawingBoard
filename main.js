@@ -1,3 +1,4 @@
+
 var yyy = document.getElementById('xxx');
 var context = yyy.getContext('2d');
 var lineWidth = 5
@@ -70,6 +71,9 @@ thin.onclick = function(){
 thick.onclick = function(){
     lineWidth = 10
 }
+thicker.onclick = function(){
+    lineWidth = 15
+}
 
 /******/
 
@@ -80,6 +84,7 @@ function autoSetCanvasSize(canvas) {
     setCanvasSize()
     }
 
+    // 画布满屏
     function setCanvasSize() {
         var pageWidth = document.documentElement.clientWidth
         var pageHeight = document.documentElement.clientHeight
@@ -113,6 +118,7 @@ function listenToUser(canvas) {
     }
 
     if (document.body.ontouchstart !== undefined) {
+        // 非触屏
         canvas.ontouchstart = function(aaa) {
             var x = aaa.touches[0].clientX
             var y = aaa.touches[0].clientY
@@ -131,7 +137,7 @@ function listenToUser(canvas) {
             var y = aaa.touches[0].clientY
       
             if (!using) {return}
-      
+
             if (eraserEnabled) {
                 context.clearRect(x - 5, y - 5, 10, 10)
             } else {
@@ -139,6 +145,7 @@ function listenToUser(canvas) {
                     "x": x,
                     "y": y
                 }
+                drawCircle(x,y,radius)
                 drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
                 lastPoint = newPoint
             }
@@ -146,7 +153,8 @@ function listenToUser(canvas) {
         canvas.ontouchend = function() {
             using = false
         }
-    }else{
+    } else {
+        // 触屏
         canvas.onmousedown = function(aaa) {
             var x = aaa.clientX
             var y = aaa.clientY
@@ -173,6 +181,7 @@ function listenToUser(canvas) {
                     "x": x,
                     "y": y
                 }
+                drawCircle(x,y,radius)
                 drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
                 lastPoint = newPoint
             }
