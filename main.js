@@ -1,7 +1,7 @@
 
 var yyy = document.getElementById('xxx');
 var context = yyy.getContext('2d');
-var lineWidth = 5
+var lineWidth = 3
 
 autoSetCanvasSize(yyy)
 
@@ -66,13 +66,22 @@ blue.onclick = function(){
 }
 
 thin.onclick = function(){
-    lineWidth = 5
+    lineWidth = 3
+    thin.classList.add('active')
+    thick.classList.remove('active')
+    thicker.classList.remove('active')
 }
 thick.onclick = function(){
-    lineWidth = 10
+    lineWidth = 6
+    thin.classList.remove('active')
+    thick.classList.add('active')
+    thicker.classList.remove('active')
 }
 thicker.onclick = function(){
-    lineWidth = 15
+    thin.classList.remove('active')
+    thick.classList.remove('active')
+    thicker.classList.add('active')
+    lineWidth = 9
 }
 
 /******/
@@ -97,7 +106,7 @@ function autoSetCanvasSize(canvas) {
 function drawCircle(x, y, lineWidth) {
     context.beginPath()
     context.fillStyle = 'black'
-    context.arc(x, y, lineWidth, 0, Math.PI * 2);
+    context.arc(x, y, lineWidth * 0.5, 0, Math.PI * 2);
     context.fill()
 }
 
