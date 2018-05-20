@@ -113,6 +113,7 @@ function drawCircle(x, y, lineWidth) {
 
 function drawLine(x1, y1, x2, y2) {
     context.beginPath();
+    context.lineCap = 'round'
     context.moveTo(x1, y1) // 起点
     context.lineWidth = lineWidth
     context.lineTo(x2, y2) // 终点
@@ -155,7 +156,7 @@ function listenToUser(canvas) {
                     "x": x,
                     "y": y
                 }
-                drawCircle(x,y,lineWidth)
+                // drawCircle(x,y,lineWidth)
                 drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
                 lastPoint = newPoint
             }
@@ -192,7 +193,7 @@ function listenToUser(canvas) {
                     "x": x,
                     "y": y
                 }
-                drawCircle(x,y,lineWidth)
+                // drawCircle(x,y,lineWidth)
                 drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
                 lastPoint = newPoint
             }

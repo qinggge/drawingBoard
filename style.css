@@ -12,6 +12,9 @@ ul,ol{
     top: 0;
     left: 0;
   }
+#xxx:active{
+    cursor: default;
+}
 .actions{
     position: fixed;
     top: 0;
