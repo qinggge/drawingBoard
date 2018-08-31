@@ -1,8 +1,8 @@
 
 var yyy = document.getElementById('xxx');
 var context = yyy.getContext('2d');
-var lineWidth = 3
-var fillStyle = black
+var lineWidth = document.getElementById('penWidth').value
+var fillStyle = document.getElementById('color').value
 
 autoSetCanvasSize(yyy)
 
@@ -32,57 +32,14 @@ download.onclick = function(){
     a.target = '_blank'
     a.click()
 }
-
-black.onclick = function(){
-    context.fillStyle = '#000'
-    context.strokeStyle = '#000'
-    black.classList.add('active')
-    red.classList.remove('active')
-    green.classList.remove('active')
-    blue.classList.remove('active')
+color.onchange = function(){
+    context.fillStyle = this.value
+    context.strokeStyle = this.value
 }
-red.onclick = function(){
-    context.fillStyle = '#F00'
-    context.strokeStyle = '#F00'
-    black.classList.remove('active')
-    red.classList.add('active')
-    green.classList.remove('active')
-    blue.classList.remove('active')
-}
-green.onclick = function(){
-    context.fillStyle = '#0F0'
-    context.strokeStyle = '#0F0'
-    black.classList.remove('active')
-    red.classList.remove('active')
-    green.classList.add('active')
-    blue.classList.remove('active')
-}
-blue.onclick = function(){
-    context.fillStyle = '#00F'
-    context.strokeStyle = '#00F'
-    black.classList.remove('active')
-    red.classList.remove('active')
-    green.classList.remove('active')
-    blue.classList.add('active')
-}
-
-thin.onclick = function(){
-    lineWidth = 3
-    thin.classList.add('active')
-    thick.classList.remove('active')
-    thicker.classList.remove('active')
-}
-thick.onclick = function(){
-    lineWidth = 6
-    thin.classList.remove('active')
-    thick.classList.add('active')
-    thicker.classList.remove('active')
-}
-thicker.onclick = function(){
-    thin.classList.remove('active')
-    thick.classList.remove('active')
-    thicker.classList.add('active')
-    lineWidth = 9
+penWidth.onchange = function(){
+    console.log(this.value)
+    lineWidth = this.value
+    document.getElementById('widthValue').innerText = this.value
 }
 
 /******/

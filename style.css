@@ -5,6 +5,9 @@ ul,ol{
     margin: 0;
     padding: 0;
 }
+body{
+    overflow: hidden;
+}
 #xxx{
     display: block;
     background: white;
@@ -22,7 +25,8 @@ ul,ol{
     padding: 20px;
 }
 .icon {
-    width: 1em; height: 1em;
+    width: 1em; 
+    height: 1em;
     vertical-align: -0.15em;
     fill: currentColor;
     overflow: hidden;
@@ -32,61 +36,50 @@ ul,ol{
     height: 1.5em;
     transition: all 0.3s;
     margin: 0 10px;
+    fill: black;
 }
 .actions svg.active{
     fill: red;
     transform: scale(1.2);
 }
-.colors{
-    position: fixed;
-    top: 60px;
-    left: 28px;
+.style{
+    position: relative;
+    padding: 70px 0px 0px 20px;
 }
-.colors > li{
-    width: 20px;
-    height: 20px;
-    margin: 10px 0;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
-    border-radius: 50%;
-    transition: all 0.3s;
+.style input{
+    display: block;
 }
-.colors li.black{
-    background: #000;
+.style p{
+    left: 40px;
+    position: absolute;
+    bottom: -170px;
 }
-.colors li.red{
-    background: #F00;
+input[type=range]{
+    transform: rotate3d(0,0,1,-90deg);
+    border-radius: 10px; 
+    -webkit-appearance: none;
+    position: absolute;
+    left: -20px;
+    bottom: -90px;
 }
-.colors li.green{
-    background: #0F0;
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}    
+input[type=range]::-webkit-slider-runnable-track {
+    height: 15px;
+    border-radius: 10px; /*将轨道设为圆角的*/
+    box-shadow: 0 1px 1px #def3f8, inset 0 .125em .125em #0d1112; /*轨道内置阴影效果*/
 }
-.colors li.blue{
-    background: #00F;
+input[type=range]:focus {
+    outline: none;
 }
-.colors li.active{
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.95);
-    transform: scale(1.2);
-}
-.sizes{
-    position: fixed;
-    right: 20px;
-    top: 10px;
-}
-.sizes > li{
-    margin: 20px 0;
-    height: 0;
-    width: 45px;
-    transition: all 0.3s;
-}
-.sizes > .thin{
-    border-top: 3px solid black;
-}
-.sizes > .thick{
-    border-top: 6px solid black;
-}
-.sizes > .thicker{
-    border-top: 9px solid black;
-}
-.sizes > li.active{
-    box-shadow: 0 0 1px 2px #808080;
-    transform: scale(1.2);
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 25px;
+    width: 25px;
+    margin-top: -5px; /*使滑块超出轨道部分的偏移量相等*/
+    background: #ffffff; 
+    border-radius: 50%; /*外观设置为圆形*/
+    border: solid 0.125em rgba(205, 224, 230, 0.5); /*设置边框*/
+    box-shadow: 0 .125em .125em #3b4547; /*添加底部阴影*/
 }
