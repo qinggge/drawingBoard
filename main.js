@@ -13,6 +13,8 @@ listenToUser(yyy)
 var eraserEnabled = false
 pen.onclick = function(){
     eraserEnabled = false
+    context.fillStyle = color.value
+    context.strokeStyle = color.value
     pen.classList.add('active')
     eraser.classList.remove('active')
 }
@@ -23,6 +25,8 @@ eraser.onclick = function(){
 }
 clear.onclick = function(){
     context.clearRect(0, 0, yyy.width + 5, yyy.height + 5)
+    context.fillStyle = "#fff";
+    context.fillRect(0, 0, yyy.width, yyy.height);
 }
 download.onclick = function(){
     var url = yyy.toDataURL('image/pngy')
@@ -64,12 +68,6 @@ function autoSetCanvasSize(canvas) {
     }
 }
 
-function drawCircle(x, y, lineWidth) {
-    context.beginPath()
-    context.fillStyle = fillStyle
-    context.arc(x, y, lineWidth * 0.5, 0, Math.PI * 2);
-    context.fill()
-}
 
 function drawLine(x1, y1, x2, y2) {
     context.beginPath();
@@ -95,7 +93,7 @@ function listenToUser(canvas) {
             var y = aaa.touches[0].clientY
             using = true
             if (eraserEnabled) {
-                context.clearRect(x - 5, y - 5, lineWidth + 5, lineWidth + 5)
+                context.clearRect(x - 5, y - 5, lineWidth, lineWidth)
             } else {
                 lastPoint = {
                     "x": x,
@@ -110,13 +108,12 @@ function listenToUser(canvas) {
             if (!using) {return}
 
             if (eraserEnabled) {
-                context.clearRect(x - 5, y - 5, lineWidth + 5, lineWidth + 5)
+                context.clearRect(x - 5, y - 5, lineWidth, lineWidth)
             } else {
                 var newPoint = {
                     "x": x,
                     "y": y
                 }
-                // drawCircle(x,y,lineWidth)
                 drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
                 lastPoint = newPoint
             }
@@ -131,7 +128,10 @@ function listenToUser(canvas) {
             var y = aaa.clientY
             using = true
             if (eraserEnabled) {
-                context.clearRect(x - 5, y - 5, lineWidth, lineWidth)
+                lastPoint = {
+                    "x": x,
+                    "y": y
+                }
             } else {
                 lastPoint = {
                     "x": x,
@@ -146,14 +146,21 @@ function listenToUser(canvas) {
             if (!using) {return}
       
             if (eraserEnabled) {
-                context.clearRect(x - 5, y - 5, lineWidth, lineWidth)
+                var newPoint = {
+                    "x": x,
+                    "y": y
+                }
+                
+                context.fillStyle = '#FFF'
+                context.strokeStyle = '#FFF'
+                drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
+                lastPoint = newPoint
 
             } else {
                 var newPoint = {
                     "x": x,
                     "y": y
                 }
-                // drawCircle(x,y,lineWidth)
                 drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
                 lastPoint = newPoint
             }
