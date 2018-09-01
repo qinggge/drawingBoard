@@ -3,6 +3,7 @@ var yyy = document.getElementById('xxx');
 var context = yyy.getContext('2d');
 var lineWidth = document.getElementById('penWidth').value
 var fillStyle = document.getElementById('color').value
+var canvasData
 
 autoSetCanvasSize(yyy)
 
@@ -21,10 +22,10 @@ eraser.onclick = function(){
     pen.classList.remove('active')
 }
 clear.onclick = function(){
-    context.clearRect(0, 0, yyy.width, yyy.height)
+    context.clearRect(0, 0, yyy.width + 5, yyy.height + 5)
 }
 download.onclick = function(){
-    var url = yyy.toDataURL('image/png')
+    var url = yyy.toDataURL('image/pngy')
     var a = document.createElement('a')
     document.body.appendChild(a)
     a.href = url
@@ -58,6 +59,8 @@ function autoSetCanvasSize(canvas) {
     
         canvas.width = pageWidth
         canvas.height = pageHeight
+        context.fillStyle = "#fff";
+        context.fillRect(0, 0, canvas.width, canvas.height);
     }
 }
 
@@ -86,13 +89,13 @@ function listenToUser(canvas) {
     }
 
     if (document.body.ontouchstart !== undefined) {
-        // 非触屏
+        // 触屏
         canvas.ontouchstart = function(aaa) {
             var x = aaa.touches[0].clientX
             var y = aaa.touches[0].clientY
             using = true
             if (eraserEnabled) {
-                context.clearRect(x - 5, y - 5, lineWidth, lineWidth)
+                context.clearRect(x - 5, y - 5, lineWidth + 5, lineWidth + 5)
             } else {
                 lastPoint = {
                     "x": x,
@@ -107,7 +110,7 @@ function listenToUser(canvas) {
             if (!using) {return}
 
             if (eraserEnabled) {
-                context.clearRect(x - 5, y - 5, lineWidth, lineWidth)
+                context.clearRect(x - 5, y - 5, lineWidth + 5, lineWidth + 5)
             } else {
                 var newPoint = {
                     "x": x,
@@ -122,7 +125,7 @@ function listenToUser(canvas) {
             using = false
         }
     } else {
-        // 触屏
+        // 非触屏
         canvas.onmousedown = function(aaa) {
             var x = aaa.clientX
             var y = aaa.clientY

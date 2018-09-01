@@ -44,13 +44,15 @@ body{
 }
 .style{
     position: relative;
-    padding: 70px 0px 0px 20px;
+    margin-left: 20px;
+    margin-top: 70px;
+    display: inline-block;
 }
 .style input{
     display: block;
 }
 .style p{
-    left: 40px;
+    left: 20px;
     position: absolute;
     bottom: -170px;
 }
@@ -59,7 +61,7 @@ input[type=range]{
     border-radius: 10px; 
     -webkit-appearance: none;
     position: absolute;
-    left: -20px;
+    left: -40px;
     bottom: -90px;
 }
 input[type=range]::-webkit-slider-thumb {
