@@ -108,7 +108,15 @@ function listenToUser(canvas) {
             if (!using) {return}
 
             if (eraserEnabled) {
-                context.clearRect(x - 5, y - 5, lineWidth, lineWidth)
+                var newPoint = {
+                    "x": x,
+                    "y": y
+                }
+                
+                context.fillStyle = '#FFF'
+                context.strokeStyle = '#FFF'
+                drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
+                lastPoint = newPoint
             } else {
                 var newPoint = {
                     "x": x,
@@ -155,7 +163,6 @@ function listenToUser(canvas) {
                 context.strokeStyle = '#FFF'
                 drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
                 lastPoint = newPoint
-
             } else {
                 var newPoint = {
                     "x": x,
